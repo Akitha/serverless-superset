@@ -5,7 +5,7 @@ run() {
     tar -zxf *.tar.gz
     cd dist
     tar -zxvf apache*.tar.gz
-    cd apache*
+    cd apache-superset-0.37.2
     cp ../../requirements.txt .
     cat ../../requirements-db.txt >> requirements.txt
     cp ../../../config/app.yaml .
@@ -14,4 +14,5 @@ run() {
 }
 
 rm -rf .staging && mkdir .staging
+chmod 0777 -R .
 (cd .staging && run)
